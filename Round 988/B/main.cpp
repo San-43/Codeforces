@@ -10,21 +10,16 @@ int main() {
     while (t--) {
         int n;
         cin >> n;
-        int arr[n];
+        vector<int> arr(n);
         vector<int> ans(n+5);
-        ans.assign(n+5, 0);
         for (int i = 0; i < n; i++) {
             cin >> arr[i];
-            ans[arr[i]]++;
+            ans[arr[i]] += 1;
         }
-        int m = n-2;
-        for (int i = 0; i < n; i++) {
-            if (m % arr[i] == 0) {
-                if (m / arr[i] == arr[i] && ans[m / arr[i]] < 2) {
-                    continue;
-                }
-                if(ans[m / arr[i]]) {
-                    cout << arr[i] << " " << m / arr[i] << endl;
+        for (int i = 1; i <= n; i++) {
+            if (ans[i] > 0 && (n-2) % i == 0) {
+                if (ans[(n-2) / i] > 0) {
+                    cout << i << " " << (n-2) / i << "\n";
                     break;
                 }
             }

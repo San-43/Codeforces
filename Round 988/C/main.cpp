@@ -4,7 +4,6 @@ using namespace std;
 
 void SieveOfEratosthenes(int n, vector<bool> &prime)
 {
-
     for (int p = 2; p * p <= n; p++) {
         if (prime[p] == true) {
             for (int i = p * p; i <= n; i += p)
@@ -45,6 +44,7 @@ int main() {
         for (int i = ans.back()+2; i <= n; i+=2) {
             ans.push_back(i);
         }
+
         for (int i = temp-2; i > 0; i-=2) {
             ans.push_back(i);
         }
