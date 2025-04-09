@@ -17,7 +17,7 @@ void solve() {
 }
 
 int main() {
-    cin.tie(NULL);
+    cin.tie(nullptr);
     ios_base::sync_with_stdio(false);
     int t = 1;
     while (t--) {
