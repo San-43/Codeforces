@@ -9,18 +9,19 @@ void solve() {
     vector<vector<int>> grid(n, vector<int>(m, 0));
     for (int i = 0; i < n; i++){
         for (int j = 0; j < m; j++){
-            char c;
-            cin >> c;
-            grid[i][j] = c == 'B';
+            char ch;
+            cin >> ch;
+            grid[i][j] = ch == 'B';
         }
     }
 
     int count = 0;
-    for (int i = 0; i < n; i++){
-        for (int j = 0; j < m; j++){
-            const int ok = grid[i][0] ^ grid[0][0] ^ grid[0][j];
-            if(grid[i][j] != ok)
+    for (int i = 0; i < n; i++) {
+        const int r = i == 0 ? 0 : grid[i][0] ^ grid[0][0];
+        for (int j = 0; j < m; j++) {
+            if ((grid[i][j] ^ r ^ grid[0][j]) != 0) {
                 count++;
+            }
         }
     }
 
