@@ -28,6 +28,7 @@ void solve () {
                 ok = false;
             }
         }
+        
         if(ok == 1)
             cout << '1' << '\n';
         else 
