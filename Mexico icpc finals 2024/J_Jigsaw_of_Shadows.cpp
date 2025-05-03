@@ -15,22 +15,28 @@ void solve () {
     for(int i = 0; i < n; i++) {
         cin >> v[i].first >> v[i].second;
     }
+
     sort(v.begin(), v.end());
 
-    double tm = 0.0;
-    double ans = dist(v[0].second, angle);
-    tm = ans + v[0].first;
+    
+    double l = v[0].first, r = v[0].first + dist(v[0].second, angle);
+    double ans = 0.0;
+    for(int i = 1; i < n; i++) {
+        double tmp = v[i].first + dist(v[i].second, angle);
 
-    for(int i = 0; i < n; i++) {
-        if(tm <= v[i].first) {
-            tm = dist(v[i].second, angle) + v[i].first;
-            ans += dist(v[i].second, angle);
-        } else if (tm <= v[i].first + dist(v[i].second, angle)) {
-            ans = ans - abs(v[i].first - ans) + dist(v[i].second, angle);
-            tm = dist(v[i].second, angle) + v[i].first;
+        if (v[i].first >= r) {
+            ans += r - l;
+            l = v[i].first;
+            r = tmp;
+        } else if(tmp > r) {
+            ans += v[i].first - l;
+            l = v[i].first;
+            r = tmp;
         }
     }
-    cout << fixed << setprecision(10) << ans << '\n';
+    ans += r-l;
+    cout << fixed << setprecision(10) <<  ans << '\n';
+
 };
 
 int main() {
