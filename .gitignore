@@ -5,6 +5,8 @@
 !*.cpp
 # Or directories
 !*/
+
 .gitignore
+CompilerIdCXX\CMakeCXXCompilerId.cpp
 !README.md
 /2022-2023 ACM-ICPC Latin American Regional Programming Contest
