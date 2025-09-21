@@ -30,4 +30,6 @@ int main() {
     while (t--) {
         solve();
     }
+    cout << flush;
+    system("Pause");
 }

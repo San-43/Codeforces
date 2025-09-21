@@ -1,5 +1,6 @@
 #pragma GCC optimize("Ofast,unroll-loops,no-stack-protector")
 #include <bits/stdc++.h>
+#include <conio.h>
 using namespace std;
 
 void solve() {
@@ -42,4 +43,7 @@ int main() {
     while (t--) {
         solve();
     }
+    
+    _getch();
+    return 0;
 }
